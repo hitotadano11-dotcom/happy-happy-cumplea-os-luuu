@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Lucero ✨</title>
+    <!-- Fuentes de Google: Cursiva elegante (Dancing Script) y texto limpio (Quicksand) -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --verde-oliva: #556b2f;
+            --verde-suave: #8fbc8f;
+            --fondo-crema: #f4f1ea;
+            --texto-oscuro: #2b3a1a;
+            --borde-mc: #3b4d20;
+        }
+
+        body {
+            background-color: var(--fondo-crema);
+            color: var(--texto-oscuro);
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 25px;
+            border-radius: 12px;
+            /* Guiño a Minecraft: Marco pixelado/bloque suave */
+            border: 4px solid var(--borde-mc);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--verde-oliva);
+            margin-bottom: 10px;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2rem; }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        /* Bloque de Acceso (Contraseña) */
+        #login-screen {
+            display: block;
+        }
+
+        #main-content {
+            display: none; /* Oculto hasta poner la contraseña correcta */
+        }
+
+        input[type="password"], input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border: 2px solid var(--verde-oliva);
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Botón estilo Minecraft / Natura */
+        .btn-mc {
+            background-color: var(--verde-oliva);
+            color: white;
+            padding: 12px 24px;
+            border: 3px solid var(--borde-mc);
+            border-radius: 6px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-mc:hover {
+            background-color: var(--verde-suave);
+            color: var(--texto-oscuro);
+            transform: scale(1.02);
+        }
+
+        /* Galería estilo 'Item Frame' de Minecraft */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .item-frame {
+            background-color: #d2b48c; /* Color madera/marco */
+            padding: 8px;
+            border: 4px solid #8b4513;
+            border-radius: 4px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .item-frame img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botón Sorpresa de YouTube */
+        .curiosity-box {
+            background-color: #e8f0e6;
+            border: 2px dashed var(--verde-oliva);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .curiosity-btn {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #c41e3a; /* Rojo suave para YouTube */
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .curiosity-btn:hover {
+            background-color: #900c3f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- PANTALLA 1: CONTRASENA -->
+        <div id="login-screen">
+            <h1>Bienvenida, Lucero 🌿</h1>
+            <p>Ingresa la palabra secreta para abrir tu regalo:</p>
+            <input type="password" id="password-input" placeholder="Escribe aquí..."><br>
+            <button class="btn-mc" onclick="checkPassword()">Entrar</button>
+            <p id="error-msg" style="color: red; display: none; margin-top: 10px;">Contraseña incorrecta, ¡inténtalo de nuevo!</p>
+        </div>
+
+        <!-- PANTALLA 2: CONTENIDO PRINCIPAL -->
+        <div id="main-content">
+            <h1>¡Feliz Cumpleaños, Lucero! ✨</h1>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.5rem;">
+                "Un detalle especial en este día 26 para alguien muy genial."
+            </p>
+
+            <hr style="border: 1px solid var(--verde-suave); margin: 20px 0;">
+
+            <!-- Carta / Mensaje -->
+            <h2>Unas palabras para ti</h2>
+            <p>
+                Lucero, gracias por ser una gran amiga. Espero que este nuevo año esté lleno de momentos alegres, caminatas tranquilas, flores de peonía y lirios del valle. ¡Disfruta mucho tu día!
+            </p>
+
+            <!-- Galería de Fotos (Item Frames) -->
+            <h2>Recuerdos 🐴🌻</h2>
+            <div class="gallery-grid">
+                <div class="item-frame">
+                    <img src="https://via.placeholder.com/200" alt="Foto de Lucero 1">
+                </div>
+                <div class="item-frame">
+                    <img src="https://via.placeholder.com/200" alt="Foto de Lucero 2">
+                </div>
+                <div class="item-frame">
+                    <img src="https://via.placeholder.com/200" alt="Foto de Lucero 3">
+                </div>
+            </div>
+
+            <!-- Recadro de Curiosidad para el Video de YouTube -->
+            <div class="curiosity-box">
+                <p style="font-weight: 600; margin-bottom: 5px;">¿Tienes curiosidad?</p>
+                <p style="font-size: 0.95rem; margin-top: 0;">Hay algo especial esperándote aquí abajo...</p>
+                
+                <!-- LINK A YOUTUBE -->
+                <a href="https://www.youtube.com" target="_blank" class="curiosity-btn">
+                    Si tienes curiosidad aplasta aquí 🎬
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            // AQUI PUEDES CAMBIAR LA CONTRASENA (por ahora es "lucero26")
+            const passCorrecta = "lucero26"; 
+
+            if (input === passCorrecta) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
