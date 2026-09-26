@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz Cumpleaños, Lucero ✨</title>
 
-    <!-- ETIOQUETAS PARA VISTA PREVIA / MINIATURA EN ENLACES (WhatsApp, redes, etc.) -->
+    <!-- ETIQUETAS PARA VISTA PREVIA / MINIATURA EN INSTAGRAM Y REDES SOCIALES -->
     <meta property="og:title" content="Feliz Cumpleaños, Lucero ✨">
     <meta property="og:description" content="Un pequeño rincón de peonías, lirios del valle y bosques de paz.">
     <meta property="og:image" content="https://i.postimg.cc/PLPyHfTD/h5k8921icnkd1.jpg">
@@ -27,7 +27,7 @@
         }
 
         body {
-            /* Fondo verde oliva con imagen de fondo y patrón de textura */
+            /* Fondo verde oliva con imagen de fondo */
             background-color: var(--verde-oliva-oscuro);
             background-image: linear-gradient(rgba(45, 59, 24, 0.75), rgba(31, 41, 16, 0.85)),
                               url('https://i.postimg.cc/PLPyHfTD/h5k8921icnkd1.jpg');
@@ -52,7 +52,6 @@
             background: rgba(45, 59, 24, 0.92);
             padding: 30px;
             border-radius: 4px;
-            /* Marco pixelado estilo Minecraft */
             border: 8px solid var(--madera-mc);
             outline: 4px solid var(--verde-oliva-claro);
             box-shadow: 0 12px 30px rgba(0,0,0,0.6);
@@ -68,7 +67,7 @@
         }
 
         h1 { font-size: 3.2rem; }
-        h2 { font-size: 2.3rem; }
+        h2 { font-size: 2.3rem; margin-top: 30px; }
 
         .sub-title-mc {
             font-family: 'Press Start 2P', monospace;
@@ -81,7 +80,10 @@
 
         p {
             line-height: 1.6;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            text-align: justify;
+            text-justify: inter-word;
+            margin-bottom: 15px;
         }
 
         .header-icon {
@@ -107,15 +109,14 @@
             transform: scale(0.95);
         }
 
-        /* Bloque Pixel Art real creado por capas CSS */
         .mc-block-pixel {
             width: 110px;
             height: 110px;
-            background: #5c3818; /* Tierra base */
+            background: #5c3818;
             box-shadow: 
-                inset 0 24px 0 0 #556b2f, /* Capa césped alto */
-                inset 0 32px 0 0 #708238, /* Detalle de raíces verde claro */
-                inset 12px 0 0 0 #3e230c, /* Sombra lateral pixelada */
+                inset 0 24px 0 0 #556b2f,
+                inset 0 32px 0 0 #708238,
+                inset 12px 0 0 0 #3e230c,
                 inset -12px 0 0 0 #7a4b21,
                 0 8px 0 0 #1f1105;
             border: 4px solid #201309;
@@ -124,7 +125,6 @@
             image-rendering: pixelated;
         }
 
-        /* Efecto de grieta pixelada */
         .crack-layer {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -168,7 +168,6 @@
             display: none;
         }
 
-        /* Botón estilo Bloque Pixel */
         .btn-mc {
             background-color: var(--verde-oliva-medio);
             color: white;
@@ -187,47 +186,98 @@
             transform: translateY(-2px);
         }
 
-        /* Sección de Reproductores de Spotify */
-        .music-embed-container {
-            margin: 25px 0;
+        /* --- REPRODUCTOR DE DISCO PEQUEÑO --- */
+        .disc-player-container {
+            margin: 20px 0;
             padding: 15px;
             background: rgba(26, 36, 12, 0.8);
             border: 3px solid var(--verde-oliva-claro);
             border-radius: 8px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Galería estilo Item Frames de Minecraft */
+        .music-disc {
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, #3b4d20 18%, #111 20%, #222 50%, #111 60%, #556b2f 62%, #111 65%);
+            border-radius: 50%;
+            border: 3px solid #708238;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .music-disc:hover {
+            transform: scale(1.08);
+        }
+
+        .music-disc-center {
+            width: 20px;
+            height: 20px;
+            background-color: #d4e157;
+            border-radius: 50%;
+            border: 2px solid #1a240c;
+        }
+
+        .spinning {
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .song-status {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            color: #aed581;
+        }
+
+        /* GALERÍA DE FOTOS (RESPETANDO TAMANO ORIGINAL) */
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin: 25px 0;
+            align-items: center;
         }
 
         .item-frame {
             background-color: #8b5a2b;
-            padding: 10px;
+            padding: 12px;
             border: 6px solid var(--madera-mc);
             box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
-            position: relative;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .item-frame img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+            max-width: 100%;
+            height: auto;
             display: block;
             border: 2px solid #2d3b18;
+            margin: 0 auto;
         }
 
         .item-frame-label {
             font-family: 'Press Start 2P', monospace;
             font-size: 0.55rem;
-            margin-top: 8px;
+            margin-top: 10px;
             color: #f4f1ea;
+        }
+
+        .message-section {
+            background: rgba(26, 36, 12, 0.6);
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--verde-oliva-claro);
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -240,24 +290,21 @@
             <div class="header-icon">⛏️🌲</div>
             <h1>Bienvenida, Lucero</h1>
             <div class="sub-title-mc">[ MINECRAFT WORLD ]</div>
-            <p id="minigame-instructions">¡Pica el bloque de tierra para romperlo y abrir tu regalo!</p>
+            <p style="text-align: center;">¡Pica el bloque de tierra para romperlo y abrir tu regalo!</p>
 
-            <!-- Bloque Pixel Art -->
             <div class="mc-block-container" id="block-btn" onclick="mineBlock()">
                 <div class="mc-block-pixel">
                     <div class="crack-layer" id="crack-icon"></div>
                 </div>
             </div>
 
-            <!-- Barra de Durabilidad -->
             <div class="progress-bar-container" id="hp-bar-container">
                 <div class="progress-bar" id="hp-bar"></div>
             </div>
 
-            <!-- Recompensa: Caballo Pixelado -->
             <div id="horse-reveal">
                 <div style="font-size: 4.5rem; margin: 10px 0;">🐴✨</div>
-                <p style="font-family: 'Press Start 2P', monospace; font-size: 0.75rem; color: #d4e157;">
+                <p style="font-family: 'Press Start 2P', monospace; font-size: 0.75rem; color: #d4e157; text-align: center;">
                     ¡HAS ENCONTRADO UN CABALLO!
                 </p>
                 <button class="btn-mc" onclick="enterSite()">ABRIR REGALO 🎁</button>
@@ -270,50 +317,101 @@
             <h1>¡Feliz Cumpleaños, Lucero!</h1>
             <div class="sub-title-mc">26 DE SEPTIEMBRE</div>
 
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #d4e157;">
+            <!-- REPRODUCTOR DE DISCO PEQUEÑO -->
+            <div class="disc-player-container">
+                <div class="music-disc" id="music-disc" onclick="toggleMusic()">
+                    <div class="music-disc-center"></div>
+                </div>
+                <div class="song-status" id="song-status">Haz clic en el disco para reproducir 🎵</div>
+            </div>
+
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #d4e157; text-align: center;">
                 "Un pequeño rincón de peonías, lirios del valle y bosques de paz."
             </p>
 
             <hr style="border: 0; height: 3px; background: var(--verde-oliva-claro); margin: 20px 0;">
 
-            <!-- REPRODUCTORES DE SPOTIFY -->
-            <h2>Una melodía para acompañarte 🎵</h2>
-            <div class="music-embed-container">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3ZCv6vU82Qo9sR7eFQ7hYA?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0Yj7WP1MbAqQVQA5Na4I7E?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- INICIO DEL MENSAJE -->
+            <div class="message-section">
+                <p>¡Bueno, si entraste aquí déjame decirte que muy feliz cumpleaños 🥳🎂 , espero que hoy te lo pases muy bien, ya cumples tus 17 años , después irás por tu buró y a chambear o a estudiar, pero bueno, por hoy me enfocaré en qué te parezca lindo este detalle!</p>
+                
+                <p>Si ves , aquí están unas imágenes tuyas , perdón por no decirte porque se que no querrías , se que aún no confías plenamente en mí y está bien, lo siento por eso , pero solo las tomé para esto , igual todo está protegido y programado correctamente.</p>
             </div>
 
-            <!-- Carta / Mensaje -->
-            <h2>Unas palabras para ti</h2>
-            <p id="custom-text">
-                [Aquí irán tus palabras especiales de agradecimiento y buenos deseos para Lucero]
-            </p>
+            <!-- GALERÍA DE FOTOS EN TAMAÑO ORIGINAL -->
+            <h2 style="text-align: center;">Recuerdos 🖼️</h2>
+            <div class="gallery-grid">
+                <div class="item-frame">
+                    <img src="https://i.postimg.cc/vTSR5D4F/file-00000000fe9081f9a0ea491c7eb19830.png" alt="Recuerdo 1">
+                    <div class="item-frame-label">Recuerdo #1</div>
+                </div>
+                <div class="item-frame">
+                    <img src="https://i.postimg.cc/LsFctc6r/file-00000000488081f9b55e5fa911b496e5.png" alt="Recuerdo 2">
+                    <div class="item-frame-label">Recuerdo #2</div>
+                </div>
+                <div class="item-frame">
+                    <img src="https://i.postimg.cc/9QD9dkNd/file-0000000000d481f98e5a1ad1c0714457.png" alt="Recuerdo 3">
+                    <div class="item-frame-label">Recuerdo #3</div>
+                </div>
+            </div>
 
-            <!-- Galería de Fotos (Item Frames) -->
-            <h2>Recuerdos 🖼️</h2>
-            <div class="gallery-grid" id="gallery-container">
-                <div class="item-frame">
-                    <img src="https://i.postimg.cc/LsFctc6r/file-00000000488081f9b55e5fa911b496e5.png" alt="Foto 1">
-                    <div class="item-frame-label">Item #1</div>
-                </div>
-                <div class="item-frame">
-                    <img src="https://i.postimg.cc/vTSR5D4F/file-00000000fe9081f9a0ea491c7eb19830.png" alt="Foto 2">
-                    <div class="item-frame-label">Item #2</div>
-                </div>
-                <div class="item-frame">
-                    <img src="https://i.postimg.cc/PLPyHfTD/h5k8921icnkd1.jpg" alt="Foto 3">
-                    <div class="item-frame-label">Item #3</div>
-                </div>
+            <!-- SEGUNDA PARTE DEL MENSAJE (ABAJO DE LAS IMÁGENES) -->
+            <div class="message-section">
+                <p>Se que no soy recurrente en darte elogios porque quizás no te gusten como tal, pero por hoy me desmando JAJAJA, igual déjame de decirte que eres una niña muy linda, por dentro eres una excelente persona, lo de linda va en general eh tanto físicamente como por dentro, eres una niña muy agradable, eres reservada como ya te lo he dicho, pero eso es lo de tí, quizás a veces te puedes soltar y está bien, todo en su momento, te esfuerzas mucho para tí misma y también para los demás, quizás intentas superar tus expectativas y también está muy exelente, te mereces mucho descanso, también el respirar aire fresco, ya sabes, también debes comer y descansar, eso hace que tú cerebro funcione mejor 👆 así que por hoy disfruta este día, te lo mereces, se que los regalos pueden ser cuando puedan , pero hoy quise hacer algo especial, como te dije a mis ojos eres una chica muy linda, atractiva físicamente , y también emocionalmente, así que no te sientas mal en algún momento, quizás sientas que te falta algo, pero aún no lo sabes , muy pronto lo sabrás , hoy siéntete como una niña digna de baile JAJAJA , tienes gustos muy exóticos y raros , pero eso significa que eres única en eso , no tienes porque sentirte mal si te dicen algo malo , solo es envidia , peroooo buenop , se que ya son muchas palabras lindas y quizás te sientas exhausta por todo lo que sucede hoy o lo que ha pasado.</p>
+            </div>
+
+            <!-- PARTE FINAL DEL MENSAJE -->
+            <div class="message-section" style="border-left-color: #d4e157;">
+                <p>Igual perdón por lo de tus fotos, si te quieres molestar conmigo adelante, pero solo lo hice para el detalle, era muy importante para mí y que tome vida este detallito, igual pensaba hacerte un video y por poco se me chispa el que te iba a decir, pero creo que no podré porque mis samples quedaron en el otro celular, pero aún así si me animo al final lo haré, y no , no es una responsabilidad es porque quiero y como tu amigo desconocido te da el agradecimiento de como me has ayudado a mi en muchas cosas, y en verdad también te lo agradezco y me gustaría serte de ayuda en muchas cosas si es que necesitas de ello , pero desde el fondo de mi corazón lulu, te deseo lo mejor, y espero que nunca te rindas , siéntete orgullosa por lo que estás logrando en el camino y lo que harás , se que hay o habrá algo que te motiva a existir, pero bueno, por esta vez termino mi camino , y desde mi casita muchas felicidades, te quiero mucho 💌🫶😭</p>
             </div>
 
         </div>
 
     </div>
 
-    <!-- Sonidos sintetizados retro (8-bit) -->
+    <!-- AUDIO Y LÓGICA -->
     <script>
         let clicksLeft = 5;
         const totalClicks = 5;
+
+        // Lista de canciones completas continuas
+        const playlist = [
+            { title: "Mon Laferte - Antes de ti 🎶", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { title: "Chico Cometa - Mujer de rizos 🎶", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" }
+        ];
+        let currentSongIndex = 0;
+        const audio = new Audio();
+        let isPlaying = false;
+
+        function loadSong(index) {
+            audio.src = playlist[index].src;
+            document.getElementById('song-status').textContent = playlist[index].title;
+        }
+
+        function toggleMusic() {
+            const disc = document.getElementById('music-disc');
+            if (!audio.src) {
+                loadSong(currentSongIndex);
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                disc.classList.remove('spinning');
+                document.getElementById('song-status').textContent = "Pausado ⏸️";
+                isPlaying = false;
+            } else {
+                audio.play();
+                disc.classList.add('spinning');
+                document.getElementById('song-status').textContent = playlist[currentSongIndex].title;
+                isPlaying = true;
+            }
+        }
+
+        audio.addEventListener('ended', () => {
+            currentSongIndex = (currentSongIndex + 1) % playlist.length;
+            loadSong(currentSongIndex);
+            audio.play();
+        });
 
         function playHitSound() {
             try {
@@ -366,7 +464,6 @@
                     playHorseSound();
                     document.getElementById('block-btn').style.display = 'none';
                     document.getElementById('hp-bar-container').style.display = 'none';
-                    document.getElementById('minigame-instructions').style.display = 'none';
                     document.getElementById('horse-reveal').style.display = 'block';
                 }
             }
